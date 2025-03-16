@@ -1,19 +1,11 @@
 import traceback
 
-def colored_print(text, color="reset"):
-    colors = {
-        "red": "\033[91m",
-        "green": "\033[92m",
-        "yellow": "\033[93m",
-        "reset": "\033[0m"
-    }
-    print(f"{colors.get(color, colors['reset'])}{text}{colors['reset']}")
-
 def format_text(text, error=None):
     codes = {
         "{re}": "\033[91m",
         "{yl}": "\033[93m",
         "{gr}": "\033[92m",
+        "{bl}": "\033[94m",
         "{rs}": "\033[0m"
     }
 
@@ -37,5 +29,3 @@ def printc(text, error=None):
 def print_error(e):
     error_msg = traceback.format_exc().strip().split("\n")[-1]
     printc("{er}", error_msg)
-
-
