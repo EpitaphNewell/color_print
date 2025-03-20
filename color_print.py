@@ -9,19 +9,19 @@ def format_text(text, error=None):
     }
 
     if "{er}" in text:
-        err_text = "[ОШИБКА]"
+        err_text = "[ERROR]"
         if error:
             err_text += f" {error}"
         text = text.replace("{er}", f"{codes.get("{re}")}{err_text}{codes.get("{rs}")}")
 
     if "{wr}" in text:
-        err_text = "[ПРЕДУПРЕЖДЕНИЕ]"
+        err_text = "[WARNING]"
         if error:
             err_text += f" {error}"
         text = text.replace("{wr}", f"{codes.get("{yl}")}{err_text}{codes.get("{rs}")}")
 
     if "{if}" in text:
-        err_text = "[ИНФО]"
+        err_text = "[INFO]"
         if error:
             err_text += f" {error}"
         text = text.replace("{if}", f"{codes.get("{bl}")}{err_text}{codes.get("{rs}")}")
